@@ -19,7 +19,8 @@
 /* 隐藏元素 */
 hbox.titlebar-spacer,
 #toolbar-menubar[inactive],
-/* right part of urlbar buttons #page-action-buttons, */
+/* urlbar search selector */ .searchmode-switcher.chromeclass-toolbar-additional, 
+/* right part of urlbar buttons */ /* #page-action-buttons, */
 /* urlbar button */ #contextual-feature-recommendation,
 /* urlbar button #userContext-icons, */
 /* urlbar button */ #reader-mode-button,
@@ -30,12 +31,12 @@ hbox.titlebar-spacer,
 /* urlbar button */ /* #pageActionButton, */
 /* urlbar button bookmark */ #star-button-box,
 
-/* tab    button close         */ .tab-close-button,
+/* tab    button close      */ .tab-close-button,
 /* tabbar button new tab    */ #tabs-newtab-button,
 /* navigator button back    */ #navigator-toolbox #nav-bar #nav-bar-customization-target #back-button,
 /* navigator button forword */ #navigator-toolbox #nav-bar #nav-bar-customization-target #forward-button,
 /* 地址栏搜索图标 #urlbar-container:not(:hover) */ #identity-box,
-/* 地址栏安全图标 #urlbar-container:not(:hover) */ #tracking-protection-icon-container,
+/* 地址栏安全图标 #urlbar-container:not(:hover) */ /* #tracking-protection-icon-container, */
 /* 地址栏背景元素 */ #urlbar-background
 {
   display: none !important;
@@ -93,7 +94,7 @@ hbox.titlebar-spacer,
   width: var(--url-container-width) !important;
   transition: width 400ms !important;
 }
-#urlbar-container:hover:focus-within {
+#urlbar-container:focus-within:hover {
   width: var(--url-container-max-width) !important;
   transition: width 400ms !important;
 }
@@ -101,15 +102,15 @@ hbox.titlebar-spacer,
   display: none !important;
   background-color: #37363ac9 !important;
 }
-#urlbar-container:hover:focus-within >
+#urlbar-container:focus-within >
 #urlbar > vbox.urlbarView {
   display: block !important;
 }
 
 /* 书签栏 */
 #PersonalToolbar {
-  width: 28px !important;
-  height: 28px !important;
+  max-width: 30px;
+  height: 28px;
   padding-inline: 0 !important;
   margin-right: 1px !important;
 }
@@ -124,18 +125,3 @@ menuitem.bookmark-item {
 #PlacesChevron {
   list-style-image: url("chrome://browser/skin/bookmark.svg") !important;
 }
-
-@-moz-document url-prefix(chrome://browser/content/browser.xhtml) {
-  #tabbrowser-tabs:is([orient="vertical"][expanded], [orient="horizontal"]) .tabbrowser-tab:not([pinned]):not([crashed]):is([soundplaying], [muted], [activemedia-blocked]) {
-    .tab-content .tab-icon-image {
-      display: none;
-    }
-    .tab-audio-button {
-      margin-top: -4px;
-    }
-  }
-}
-/* place navigator bar to bottom */
-/* #navigator-toolbox {
-  order: 2;
-} */
